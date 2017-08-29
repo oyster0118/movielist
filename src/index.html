@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title ng-bind="title"></title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/base.css">
+</head>
+
+<body ng-app="myApp">
+    <nav class="navbar navbar-default" ng-controller="commonCtrl" ng-init="navClass = 'in_theaters' ">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">movieCat</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li ng-click="navClass = 'in_theaters' " ng-class="{'active': navClass == 'in_theaters' }"><a href="#!/in_theaters/1">正在热映</a></li>
+                    <li ng-click=" navClass = 'coming_soon' " ng-class="{'active': navClass == 'coming_soon'}"><a href="#!/coming_soon/1">即将上映</a></li>
+                    <li ng-click=" navClass = 'top250' " ng-class="{'active': navClass == 'top250'}"><a href="#!/top250/1">Top250</a></li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="请输入搜索内容" ng-model="keyword">
+                    </div>
+                    <button type="button" class="btn btn-default" ng-click="jump()">搜索</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div ng-view></div>
+    <script src="../node_modules/angular/angular.min.js"></script>
+    <script src="../node_modules/angular-route/angular-route.min.js"></script>
+    <script src="js/all.min.js"></script>
+</body>
+
+</html>
